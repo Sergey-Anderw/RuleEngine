@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Fluid.Core" Version="2.24.0" />
+    <PackageReference Include="JsonRepairUtils" Version="0.0.2" />
+    <PackageReference Include="MediatR" Version="12.4.1"/>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.66.0" />
+<!--    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.63.0" />-->
+<!--    <PackageReference Include="Microsoft.SemanticKernel.Agents.Core" Version="1.63.0"/>-->
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.OpenAI" Version="1.66.0-preview"/>
+<!--    <PackageReference Include="SharpToken" Version="2.0.3" />-->
+    <PackageReference Include="System.IO.Abstractions" Version="22.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HC.AiProcessor.Entity\HC.AiProcessor.Entity.csproj" />
+    <ProjectReference Include="..\HC.AiProcessor.Infrastructure\HC.AiProcessor.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Services\AiAttributesPopulationService.PopulationResponse.cs">
+      <DependentUpon>AiAttributesPopulationService.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Services\AiAttributesPopulationService.Types.cs">
+      <DependentUpon>AiAttributesPopulationService.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Services\AiAttributesPopulationService.Helpers.cs">
+      <DependentUpon>AiAttributesPopulationService.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Services\AiAttributesPopulationService.OptionsMapping.cs">
+      <DependentUpon>AiAttributesPopulationService.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Services\AiTextGenerationInputBatchProcessor.Types.cs">
+      <DependentUpon>AiTextGenerationInputBatchProcessor.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

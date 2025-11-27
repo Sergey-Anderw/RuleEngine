@@ -1,0 +1,9 @@
+﻿global using Asp.Versioning;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using Microsoft.AspNetCore.Mvc;
+global using System;
+global using System.Reflection;
+global using System.Text.Encodings.Web;
+global using System.Text.Json.Serialization;
+global using System.Text.Unicode;
+global using MediatR;
