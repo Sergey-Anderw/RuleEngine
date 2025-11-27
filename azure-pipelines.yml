@@ -1,0 +1,40 @@
+parameters:
+  - name: tag
+    type: string
+    default: '$(Build.SourceVersion)'
+
+variables:
+  containerRegistry: 'GitLabContainerRegistry'
+
+steps:
+  - pwsh: |
+      Write-Host "##vso[build.updatebuildnumber]${{ parameters.tag }}"
+    displayName: 'Set version'
+
+  # Build and Push API
+  - task: Docker@2
+    displayName: 'Build image'
+    inputs:
+      containerRegistry: '$(containerRegistry)'
+      repository: '$(repository)/$(System.DefinitionName)'
+      command: 'build'
+      Dockerfile: '$(folder)/Dockerfile'
+      buildContext: '.'
+      tags: |
+        $(Build.BuildNumber)
+        $(Build.SourceVersion)
+      arguments: '--build-arg token=$(NUGET_PASS) --build-arg nuget_user=$(NUGET_USER)'
+      addPipelineData: false
+      addBaseImageData: false
+
+  - task: Docker@2
+    displayName: 'Push image'
+    inputs:
+      containerRegistry: '$(containerRegistry)'
+      repository: '$(repository)/$(System.DefinitionName)'
+      command: 'push'
+      tags: |
+        $(Build.BuildNumber)
+        $(Build.SourceVersion)
+      addPipelineData: false
+      addBaseImageData: false

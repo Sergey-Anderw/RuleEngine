@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC.AiProcessor.Worker", "HC.AiProcessor.Worker\HC.AiProcessor.Worker.csproj", "{8207D02D-338F-4F7F-89A0-574C4FA72FF2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC.AiProcessor.Entity", "HC.AiProcessor.Entity\HC.AiProcessor.Entity.csproj", "{4B3041E8-3CF9-42D1-980F-CD831DD8C336}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC.AiProcessor.Infrastructure", "HC.AiProcessor.Infrastructure\HC.AiProcessor.Infrastructure.csproj", "{F8D457E9-F223-4DC6-98A8-D433730140B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC.AiProcessor.Application", "HC.AiProcessor.Application\HC.AiProcessor.Application.csproj", "{0F0DAC99-11BD-4CD0-AE93-A2C37B326154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.AiProcessor.API", "HC.AiProcessor.API\HC.AiProcessor.API.csproj", "{92C518F9-6F96-4BEF-9A9E-7EE3A8E748EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.AiProcessor.CLI", "HC.AiProcessor.CLI\HC.AiProcessor.CLI.csproj", "{5771836C-C369-4557-A632-431EAE28A43B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8207D02D-338F-4F7F-89A0-574C4FA72FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8207D02D-338F-4F7F-89A0-574C4FA72FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8207D02D-338F-4F7F-89A0-574C4FA72FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8207D02D-338F-4F7F-89A0-574C4FA72FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3041E8-3CF9-42D1-980F-CD831DD8C336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3041E8-3CF9-42D1-980F-CD831DD8C336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3041E8-3CF9-42D1-980F-CD831DD8C336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3041E8-3CF9-42D1-980F-CD831DD8C336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D457E9-F223-4DC6-98A8-D433730140B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D457E9-F223-4DC6-98A8-D433730140B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D457E9-F223-4DC6-98A8-D433730140B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D457E9-F223-4DC6-98A8-D433730140B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0DAC99-11BD-4CD0-AE93-A2C37B326154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0DAC99-11BD-4CD0-AE93-A2C37B326154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0DAC99-11BD-4CD0-AE93-A2C37B326154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0DAC99-11BD-4CD0-AE93-A2C37B326154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C518F9-6F96-4BEF-9A9E-7EE3A8E748EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C518F9-6F96-4BEF-9A9E-7EE3A8E748EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C518F9-6F96-4BEF-9A9E-7EE3A8E748EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C518F9-6F96-4BEF-9A9E-7EE3A8E748EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5771836C-C369-4557-A632-431EAE28A43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5771836C-C369-4557-A632-431EAE28A43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5771836C-C369-4557-A632-431EAE28A43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5771836C-C369-4557-A632-431EAE28A43B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0531F97-2F42-44CC-B86E-22B83EE06B40}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
