@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Worker\\HC.AiProcessor.Worker.csproj": {}
+  },
+  "projects": {
+    "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\HC.AiProcessor.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\HC.AiProcessor.Application.csproj",
+        "projectName": "HC.AiProcessor.Application",
+        "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\HC.AiProcessor.Application.csproj",
+        "packagesPath": "C:\\Users\\sergey.ponomarenko\\.nuget\\packages\\",
+        "outputPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sergey.ponomarenko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.ithoot.com/api/v4/projects/36/packages/nuget/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj": {
+                "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj"
+              },
+              "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\HC.AiProcessor.Infrastructure.csproj": {
+                "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\HC.AiProcessor.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "Fluid.Core": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            },
+            "JsonRepairUtils": {
+              "target": "Package",
+              "version": "[0.0.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.SemanticKernel": {
+              "target": "Package",
+              "version": "[1.66.0, )"
+            },
+            "Microsoft.SemanticKernel.Agents.OpenAI": {
+              "target": "Package",
+              "version": "[1.66.0-preview, )"
+            },
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[22.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj",
+        "projectName": "HC.AiProcessor.Entity",
+        "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj",
+        "packagesPath": "C:\\Users\\sergey.ponomarenko\\.nuget\\packages\\",
+        "outputPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sergey.ponomarenko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.ithoot.com/api/v4/projects/36/packages/nuget/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "HC.Packages.Persistent": {
+              "target": "Package",
+              "version": "[8.0.30, )"
+            },
+            "Pgvector.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[0.2.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\HC.AiProcessor.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\HC.AiProcessor.Infrastructure.csproj",
+        "projectName": "HC.AiProcessor.Infrastructure",
+        "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\HC.AiProcessor.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\sergey.ponomarenko\\.nuget\\packages\\",
+        "outputPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sergey.ponomarenko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.ithoot.com/api/v4/projects/36/packages/nuget/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj": {
+                "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Entity\\HC.AiProcessor.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Cyrillic.Convert": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "HC.Packages.Contracts": {
+              "target": "Package",
+              "version": "[8.1.5, )"
+            },
+            "HC.Packages.Storage": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Humanizer": {
+              "target": "Package",
+              "version": "[2.14.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Pgvector.Dapper": {
+              "target": "Package",
+              "version": "[0.3.1, )"
+            },
+            "XO.EntityFrameworkCore.NpgsqlJsonSerializerOptions": {
+              "target": "Package",
+              "version": "[8.0.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Worker\\HC.AiProcessor.Worker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Worker\\HC.AiProcessor.Worker.csproj",
+        "projectName": "HC.AiProcessor.Worker",
+        "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Worker\\HC.AiProcessor.Worker.csproj",
+        "packagesPath": "C:\\Users\\sergey.ponomarenko\\.nuget\\packages\\",
+        "outputPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Worker\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sergey.ponomarenko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.ithoot.com/api/v4/projects/36/packages/nuget/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\HC.AiProcessor.Application.csproj": {
+                "projectPath": "D:\\LM\\hc-ai-processor\\HC.AiProcessor.Application\\HC.AiProcessor.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "HC.Packages.Auth": {
+              "target": "Package",
+              "version": "[8.0.19, )"
+            },
+            "HC.Packages.Messaging": {
+              "target": "Package",
+              "version": "[8.0.20, )"
+            },
+            "HC.Packages.Services.Workers": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

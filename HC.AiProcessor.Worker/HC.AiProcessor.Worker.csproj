@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HC.Packages.Auth" Version="8.0.19" />
+		<PackageReference Include="HC.Packages.Messaging" Version="8.0.20" />
+		<PackageReference Include="HC.Packages.Services.Workers" Version="8.0.4" />
+		<PackageReference Include="System.Text.Json" Version="9.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\HC.AiProcessor.Application\HC.AiProcessor.Application.csproj" />
+	</ItemGroup>
+	
+</Project>
