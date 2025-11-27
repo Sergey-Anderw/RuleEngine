@@ -1,0 +1,73 @@
+﻿Map raw values to allowed options using semantic rules.
+
+Input structure:
+- code: attribute identifier
+- label: attribute name  
+- options: allowed values list
+- values: array of raw values to map
+
+Instructions:
+- For each value in the values array, always find and output the best-matched option from the options list, using semantic similarity, equivalence, or formatting rules.
+- If a value is a plain number and all options share a common unit or attribute, infer the unit and match the value to the corresponding option with that unit, but only if there is no ambiguity and you are fully confident in the match.
+- When mapping durations or measurements, only map to an option if it represents the same duration or measurement, not a combined or extended offer.
+- The best match may be an exact match, a synonym, a standard equivalent, or a formatting variant, as described in the mapping rules below.
+- Never invent, guess, or output a mapping if not fully confident.
+- Skip values that cannot be mapped with certainty.
+- Do not output anything for values that are identical to an option; skip these cases.
+- Output must be a minified JSON object with a single property "results", which is an array of objects. Each object must have the fields: code, value, and option, as described below.
+- If no matches are found, return {"results": []}.
+- Do not include extra text, comments, or wrappers in your response.
+
+Mapping rules:
+
+ALLOWED mappings:
+1. Formatting differences only: Same number with different punctuation or separators
+   Example: "1.5" → "1,5", "1000" → "1,000" (same value, different formatting)
+2. Equivalent measurements: Standard unit conversions (only if both forms exist in options)
+   Example: "12 months" → "1 year", "1000g" → "1kg" (same measurement, different units)
+3. Identical meaning: Terms that mean exactly the same thing
+   Example: "navy" → "Blue", "cell phone" → "Mobile Phone" (same meaning, different words)
+4. For product, brand, model, series, or collection names, always prefer options that contain the raw value as a substring, especially if the brand also matches. Only use semantic similarity if no such substring match exists.
+   Example: "Brand1 ModelA" → "Brand1 ModelA Pro", "Brand2 Series1" → "Brand2 Series1 Ultra", "Brand3" → "Brand3 ProductLine", "ModelX" → "Brand4 ModelX Limited Edition"
+
+FORBIDDEN mappings:
+1. Different measurements: Different values, even if similar
+   Example: "1.3 GHz" → "3.2 GHz", "8GB" → "16GB", "1920x1080" → "2560x1440"
+2. Similar meaning but different concepts: Related terms that are not identical
+   Example: "Intel i5" → "Intel i7", "Red" → "Dark Red", "Leather" → "Faux Leather"
+3. Guesses or uncertain matches
+   Example: Any mapping where you're not 100% certain
+
+CRITICAL: Only map when 100% certain the values represent the exact same measurement, concept, meaning, or standard equivalent (including unit conversions and exact synonyms).
+
+Examples by attribute type:
+- Colors: Exact color synonyms (allowed), different shades (forbidden)
+- Sizes: Exact size synonyms (allowed), different sizes (forbidden)
+- Brands: Exact brand synonyms (allowed), different brands (forbidden)
+- Materials: Exact material synonyms (allowed), different materials (forbidden)
+- Measurements: Exact measurements (allowed), different values (forbidden)
+
+INPUT EXAMPLE:
+[
+  {
+    "code": "color",
+    "label": "Color",
+    "options": ["Blue", "Yellow", "Black"],
+    "values": ["navy"]
+  }
+]
+
+RESPONSE EXAMPLE:
+{
+  "results": [
+    { "code": "color", "value": "navy", "option": "Blue" }
+  ]
+}
+
+INVALID OUTPUTS TO AVOID:
+- Mapping not in options: { "results": [ { "code": "color", "value": "navy", "option": "pink" } ] }
+- Copying values or options: { "results": [ { "code": "color", "value": "Blue", "option": "Blue" } ] } or { "results": [ { "code": "color", "value": "navy", "option": "navy" } ] }
+- Extra nesting or text: Do not include wrappers, explanations, or empty mappings.
+
+TASK INPUT:
+{{ InputsJson }}

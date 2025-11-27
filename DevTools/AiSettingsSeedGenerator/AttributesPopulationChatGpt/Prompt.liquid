@@ -1,0 +1,106 @@
+﻿Populate product attributes based on the provided JSON schema and attribute definitions, following these detailed instructions.
+
+Task Instructions:
+- Extract and populate each attribute strictly according to its definition and `valueType`.
+- Use only the information provided and trusted, up-to-date web sources.
+- For each attribute:
+  - Ensure the value matches the specified `valueType`:
+    - `Boolean`: Convert explicit yes/no, true/false, 1/0 to boolean true/false.
+    - `Integer`: Extract numeric strings to integers (for example, "12 pcs" becomes 12).
+    - `Decimal`: Extract numeric strings to decimals (for example, "0.75 L" becomes 0.75).
+    - `Text`: Clean and format as plain text.
+    - `FormattedText`: Format as properly structured HTML.
+    - `Date`: Convert to YYYY-MM-DD format.
+    - `DateRange`: Provide an object with from and to in YYYY-MM-DD format.
+    - `SingleChoice` or `MultiChoice`:
+      - If `settings.options` are provided:
+        - Match EXACTLY (case-sensitive) allowed options when possible.
+        - Map synonyms, abbreviations, plural/singular forms, and numeric equivalents to allowed options (for example, '12 months' becomes 'Year', 'kg' becomes 'Kilogram', 'XL' becomes 'Extra Large').
+        - Convert numeric values to their textual or canonical form if that matches an allowed option (for example, '2' becomes 'Two').
+        - Normalize units and time periods to the schema's expected granularity (for example, '365 days' becomes 'Year').
+        - Prefer the most semantically accurate match; if multiple options are possible, choose the most specific and explain in reasoning.
+        - If no match is possible, omit the attribute.
+      - If `settings.options` are missing:
+        - If `settings.optionExamples` are provided then use `settings.optionExamples` as templates for how values should look. When normalizing or extracting data, match values to these examples as closely as possible in both structure and meaning.
+        - If `settings.optionExamples` are missing then guess the correct format from context, or keep important words and units unchanged.
+        - Avoid numeric-only values unless contextually appropriate.
+        - Prefer descriptive phrasing over ambiguous terms.
+  - Assign a confidence score (0.0–1.0) for each attribute.
+  - Provide a clear, concise reasoning (in the output language) for each value, stating what information was found and any assumptions made. Do not include URLs or external references in the reasoning.
+  - List all supporting URLs only in the searchResults node, grouped by attribute, with no duplicates. Use at least one valid, trusted source per attribute.
+- Omit any attribute if you are not confident in mapping; never use placeholders like "null", "unknown", or "N/A".
+
+Search Results Grouping:
+- When multiple attributes are supported by the same source, group all relevant attribute codes together in a single searchResults entry for that source.
+- Each unique URL should appear only once in the searchResults array, with its codes array listing all supported attributes.
+- Only valid sources must be included; sources such as 'page not found' or 404 pages must be omitted.
+- Only include a relation between a code and a source if the attribute value can actually be extracted from that source; otherwise, omit the source for that attribute code.
+
+Additional Sources Instruction:
+- Prioritize localized versions of websites when available to ensure content matches the output language.
+
+Output Requirements:
+- Return only valid, minified RFC 8259-compliant JSON (no markdown, code blocks, or extra formatting).
+- Do not include any commentary or extraneous text.
+
+Bad Example Output (Multiple Common Errors):
+
+{
+  "results": [
+    {"code": "weight", "value": null, "confidence": "high"},
+    {"code": "color", "value": "unknown", "confidence": 0.8, "reason": "See https://untrustedwiki.com/color-info"},
+    {"code": "size", "value": "12.5 kg", "confidence": 0.9, "reason": "No data found."},
+    {"code": "length", "value": 42}
+  ],
+  "searchResults": [
+    {"codes": ["weight"], "sources": ["https://untrustedwiki.com/weight-info", "https://trustedsource.com/product/123"]},
+    {"codes": ["size"], "sources": ["https://untrustedwiki.com/weight-info"]}
+  ],
+  "extraField": 123
+}
+
+Bad Example Output (Source Not Grouped by Codes):
+
+{
+  "results": [
+    {"code": "weight", "value": 12.5, "confidence": 0.92, "reason": "'12.5 kg' found in product listing."},
+    {"code": "color", "value": "Red", "confidence": 0.98, "reason": "Listed as 'Red' in description."}
+  ],
+  "searchResults": [
+    {"codes": ["weight"], "sources": ["https://trustedsource.com/product/123"]},
+    {"codes": ["color"], "sources": ["https://trustedsource.com/product/123"]}
+  ]
+}
+
+STRICT INSTRUCTION: Avoid all bad examples shown above. Never produce outputs with:
+- null values, "unknown", or "N/A" placeholders
+- confidence scores as strings instead of numbers
+- URLs in reasoning text
+- extra fields not in the schema
+- ungrouped search results for the same source
+- invalid or untrusted sources
+- missing required fields like confidence or reason
+
+Good Example Output:
+
+{
+  "results": [
+    {"code": "weight", "value": 12.5, "confidence": 0.92, "reason": "'12.5 kg' found in product listing."},
+    {"code": "color", "value": "Red", "confidence": 0.98, "reason": "Listed as 'Red' in description."},
+    {"code": "releaseDate", "value": "2023-05-01", "confidence": 0.95, "reason": "Release date is 2023-05-01."},
+    {"code": "availableSizes", "value": ["S", "M", "L"], "confidence": 0.9, "reason": "Sizes S, M, L are available."},
+    {"code": "warrantyPeriod", "value": {"from": "2023-05-01", "to": "2025-05-01"}, "confidence": 0.85, "reason": "Warranty is two years."}
+  ],
+  "searchResults": [
+    {"codes": ["weight"], "sources": ["https://trustedsource1.com/product/123"]},
+    {"codes": ["weight", "color"], "sources": ["https://trustedsource2.com/product/123"]},
+    {"codes": ["releaseDate", "warrantyPeriod"], "sources": ["https://manufacturer.com/product-release"]},
+    {"codes": ["availableSizes"], "sources": ["https://retailer.com/product/123/sizes"]}
+  ]
+}
+
+Input:
+Product label: {{ Label }}
+Output language: {{ Language }}
+Attributes (JSON):
+{{ AttributesJson }}

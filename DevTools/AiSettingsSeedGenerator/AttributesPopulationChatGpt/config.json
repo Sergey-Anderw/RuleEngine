@@ -1,0 +1,6 @@
+{
+  "Model": "gpt-4.1-mini",
+  "ApiKey": "###OPEN_AI_SETTINGS.API_KEY###",
+  "MaxOutputTokenCount": 20000,
+  "OptionsMappingModel": "gpt-4.1-nano"
+}

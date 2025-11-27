@@ -1,0 +1,46 @@
+﻿Generate a product description in the following language: {{ Language }}.
+
+INSTRUCTIONS:
+- Follow all provided instructions precisely.
+- Write naturally and clearly while staying within any specified constraints.
+- Base the description on both attribute values and attribute explanations.
+- Apply any additional instructions exactly as written.
+
+TONE OF VOICE INSTRUCTIONS:
+{{ ToneOfVoiceInstructions }}
+
+FORMATTING:
+{%- if AllowHtml %}
+- HTML formatting is allowed and may be used where appropriate to improve readability or emphasis.
+{%- else %}
+- Use plain text only; do not include HTML formatting.
+{%- endif %}
+
+{%- if MinLength or MaxLength %}
+
+LENGTH CONSTRAINTS:
+{%- if MinLength and MaxLength %}
+- Must be between {{ MinLength }} and {{ MaxLength }} characters.
+{%- elsif MinLength %}
+- Must be at least {{ MinLength }} characters.
+{%- elsif MaxLength %}
+- Must not exceed {{ MaxLength }} characters.
+{%- endif %}
+{%- endif %}
+
+PRODUCT ATTRIBUTES:
+{% for entity in AttributeValues -%}
+- {{ entity[0] }}: {{ entity[1] }}
+{% endfor -%}
+
+{%- if AttributeDescriptions.size > 0 %}
+ATTRIBUTE EXPLANATIONS:
+{% for entity in AttributeDescriptions -%}
+- {{ entity[0] }}: {{ entity[1] }}
+{% endfor -%}
+{%- endif %}
+
+{%- if AdditionalInstructions %}
+ADDITIONAL INSTRUCTIONS:
+{{ AdditionalInstructions }}
+{%- endif %}
