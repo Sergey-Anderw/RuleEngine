@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>5d004648-f365-4f05-ab05-5aed54b841f5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HC.Packages.Auth" Version="8.0.19" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+    <PackageReference Include="HC.Packages.Services.API" Version="8.0.6" />
+    <PackageReference Include="System.Text.Json" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="14.2.0" />
+    <PackageReference Include="NSwag.CodeGeneration.TypeScript" Version="14.2.0" />
+    <PackageReference Include="NSwag.MSBuild" Version="14.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HC.AiProcessor.Application\HC.AiProcessor.Application.csproj" />
+  </ItemGroup>
+
+  <Target Name="NSwag" AfterTargets="PostBuildEvent" Condition="'$(BuildMode)' != 'CI' AND '$(Configuration)' == 'Debug' ">
+    <Message Importance="High" Text="$(NSwagExe_Net80) run nswag.json /variables:Configuration=$(Configuration)" />
+    <Exec WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net80) run nswag.json /variables:Configuration=$(Configuration)" />
+    <Delete Files="$(ProjectDir)\obj\$(MSBuildProjectFile).NSwag.targets" />
+    <!-- This thingy trigger project rebuild -->
+  </Target>
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="" nswag_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+
+</Project>
